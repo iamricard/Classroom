@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
   public static void main(String[] args) {
-    int[] xs = numbers(100000);
+    int[] xs = numbers(1000000);
 
     System.out.printf("For an array of %d elements.\n", xs.length);
     System.out.printf("Bubble sort took %s.\n", Benchmark.run(() -> Sort.bubble(xs)));

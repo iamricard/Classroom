@@ -47,8 +47,37 @@ class Sort {
   }
 
   @Contract(pure = true)
-  public static int[] insertion(int[] xs) {
-    int[] ys = xs.clone();
+  static int[] insertion(int[] xs) {
+    int[] ys = new int[xs.length];
+    ys[0] = xs[0];
+
+    for (int i = 1; i < xs.length; i++) {
+      int current = xs[i];
+      int idx = i;
+
+      for (int j = 0; j < i; j++) {
+        if (current < ys[j]) {
+          idx = j;
+          break;
+        }
+      }
+
+      insertAt(ys, idx, i, current);
+    }
     return ys;
+  }
+
+  private static void insertAt(int[] xs, int idx, int end, int value) {
+    int swap = xs[idx];
+    int i;
+    xs[idx] = value;
+
+    for (i = idx + 1; i < end; i++) {
+      int next = xs[i];
+      xs[i] = swap;
+      swap = next;
+    }
+
+    xs[i] = swap;
   }
 }
