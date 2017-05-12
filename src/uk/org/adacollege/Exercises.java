@@ -1,9 +1,10 @@
 package uk.org.adacollege;
 
-import java.util.Arrays;
 import java.util.Random;
 
 class Exercises {
+  private final static int LIST_SIZE = 100000;
+
   static void palindrome() {
     String[] palindromes = {"madam", "potato", "london", "google", "poop"};
 
@@ -18,32 +19,36 @@ class Exercises {
     int[] xs = numbers();
 
     System.out.printf("For an array of %d elements.\n", xs.length);
-    System.out.printf("Bubble sort took %s.\n", Benchmark.run(() -> Sort.bubble(xs)));
-    System.out.printf("Selection sort took %s.\n", Benchmark.run(() -> Sort.selection(xs)));
-    System.out.printf("Insertion sort took %s.\n", Benchmark.run(() -> Sort.insertion(xs)));
+
+    Thread bubbleT = new Thread(() -> System.out.printf(
+      "Bubble sort took %s.\n", Benchmark.run(() -> Sort.bubble(xs))
+    ));
+    Thread selectionT = new Thread(() -> System.out.printf(
+      "Selection sort took %s.\n", Benchmark.run(() -> Sort.selection(xs))
+    ));
+    Thread insertionT = new Thread(() -> System.out.printf(
+      "Insertion sort took %s.\n", Benchmark.run(() -> Sort.insertion(xs))
+    ));
+
+    bubbleT.start();
+    selectionT.start();
+    insertionT.start();
   }
 
   static void search() {
-    int[] xs = {1, 2, 3, 10, 20, 50, 60};
-    int t = 20;
-    System.out.printf(
-      "In array %s, found %d in position %d\n",
-      Arrays.toString(xs),
-      t,
-      Search.binary(xs, t)
-    );
-
-    t = 21;
-    System.out.printf(
-      "In array %s, could not find %d (%d)\n",
-      Arrays.toString(xs),
-      t,
-      Search.binary(xs, t)
-    );
+    int[] xs = Sort.insertion(numbers());
+    int target = xs[new Random().nextInt(LIST_SIZE)];
+    System.out.printf("Binary search took %s.\n", Benchmark.run(
+      () -> System.out.printf(
+        "Found %d at position %d.\n",
+        target,
+        Search.binary(xs, target)
+      )
+    ));
   }
 
   private static int[] numbers() {
-    return new Random().ints(1000000).toArray();
+    return new Random().ints(LIST_SIZE).toArray();
   }
 
   private static boolean isPalindrome(String str) {
