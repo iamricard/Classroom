@@ -61,7 +61,7 @@ class Exercises {
     }
 
     for (int i = 0; i < cs.length; i++) {
-      rev[i] = s.pop();
+      rev[i] = s.pop().orElse("");
     }
 
     return String.join("", cs).equals(String.join("", rev));

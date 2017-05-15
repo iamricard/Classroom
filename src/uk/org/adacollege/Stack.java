@@ -1,7 +1,9 @@
 package uk.org.adacollege;
 
+import javax.swing.text.html.Option;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class Stack<T> {
   private T[] memory;
@@ -23,11 +25,17 @@ public class Stack<T> {
     memory[count - 1] = x;
   }
 
-  T peek() {
-    return memory[count];
+  Optional<T> peek() {
+    if (count == 0) return Optional.empty();
+    
+    return Optional.of(memory[count]);
   }
 
-  T pop() {
+  Optional<T> pop() {
+    if (count == 0) {
+      return Optional.empty();
+    }
+
     T x = memory[count - 1];
     count--;
 
@@ -35,7 +43,7 @@ public class Stack<T> {
       memory = Arrays.copyOf(memory, memory.length / 2);
     }
 
-    return x;
+    return Optional.of(x);
   }
 
   int size() {
