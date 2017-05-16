@@ -68,16 +68,9 @@ class Sort {
   }
 
   private static void insertAt(int[] xs, int idx, int end, int value) {
-    int swap = xs[idx];
-    int i;
-    xs[idx] = value;
-
-    for (i = idx + 1; i < end; i++) {
-      int next = xs[i];
-      xs[i] = swap;
-      swap = next;
+    for (int i = end; i >= idx; i--) {
+      if (i + 1 < xs.length) xs[i + 1] = xs[i];
+      xs[i] = value;
     }
-
-    xs[i] = swap;
   }
 }
