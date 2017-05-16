@@ -40,9 +40,7 @@ class Exercises {
     int target = xs[new Random().nextInt(LIST_SIZE)];
     System.out.printf("Binary search took %s.\n", Benchmark.run(
       () -> System.out.printf(
-        "Found %d at position %d.\n",
-        target,
-        Search.binary(xs, target)
+        "Found %d: %b.\n", target, Search.binary(xs, target)
       )
     ));
   }

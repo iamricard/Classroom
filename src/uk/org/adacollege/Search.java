@@ -1,16 +1,16 @@
 package uk.org.adacollege;
 
 class Search {
-  static int binary(int[] xs, int x) {
+  static boolean binary(int[] xs, int x) {
     int hi = xs.length - 1;
     int lo = 0;
     int pivot = hi / 2;
 
     while (true) {
       if (x == xs[pivot]) {
-        return pivot;
+        return true;
       } else if (pivot == hi && pivot == lo) {
-        return -1;
+        return false;
       } else if (x < xs[pivot]) {
         hi = pivot - 1;
       } else {
