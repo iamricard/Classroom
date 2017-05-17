@@ -2,9 +2,9 @@ package me.rsole.sort;
 
 import org.jetbrains.annotations.Contract;
 
-public class Selection {
+public class SelectionSort {
   @Contract(pure = true)
-  public static int[] sort(int[] xs) {
+  public static int[] exec(int[] xs) {
     int[] ys = xs.clone();
     int minIdx = 0;
 

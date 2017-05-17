@@ -2,9 +2,9 @@ package me.rsole.sort;
 
 import org.jetbrains.annotations.Contract;
 
-public class Insertion {
+public class InsertionSort {
   @Contract(pure = true)
-  public static int[] sort(int[] xs) {
+  public static int[] exec(int[] xs) {
     int[] ys = new int[xs.length];
     ys[0] = xs[0];
 
