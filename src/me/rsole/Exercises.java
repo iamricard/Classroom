@@ -2,6 +2,7 @@ package me.rsole;
 
 import me.rsole.data.Stack;
 import me.rsole.search.BinarySearch;
+import me.rsole.search.LinearSearch;
 import me.rsole.sort.BubbleSort;
 import me.rsole.sort.InsertionSort;
 import me.rsole.sort.SelectionSort;
@@ -37,6 +38,7 @@ class Exercises {
     int target = xs[new Random().nextInt(LIST_SIZE)];
     Benchmark b = new Benchmark();
     b.add("BinarySearch Search", () -> BinarySearch.exec(xs, target));
+    b.add("LinearSearch Search", () -> LinearSearch.exec(xs, target));
     b.run();
   }
 
