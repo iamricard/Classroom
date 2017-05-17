@@ -52,7 +52,7 @@ class Exercises {
   private static boolean isPalindrome(String str) {
     String[] cs = str.toLowerCase().split("");
     String[] rev = new String[cs.length];
-    Stack<String> s = new Stack<>(String.class);
+    Stack<String> s = new Stack<>();
 
     for (String c : cs) {
       s.push(c);
