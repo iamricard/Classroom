@@ -1,4 +1,4 @@
-package uk.org.adacollege;
+package uk.org.adacollege.data;
 
 class Node<T> {
   private T data;

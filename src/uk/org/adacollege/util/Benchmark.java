@@ -1,9 +1,9 @@
-package uk.org.adacollege;
+package uk.org.adacollege.util;
 
 import java.util.concurrent.TimeUnit;
 
-class Benchmark {
-  static String run(Runnable computation) {
+public class Benchmark {
+  public static String run(Runnable computation) {
     long start = System.currentTimeMillis();
     computation.run();
     long end = System.currentTimeMillis();

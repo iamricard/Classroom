@@ -1,7 +1,7 @@
-package uk.org.adacollege;
+package uk.org.adacollege.search;
 
-class Search {
-  static boolean binary(int[] xs, int x) {
+public class Binary {
+  public static boolean search(int[] xs, int x) {
     int hi = xs.length - 1;
     int lo = 0;
     int pivot = hi / 2;

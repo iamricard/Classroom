@@ -1,5 +1,10 @@
 package uk.org.adacollege;
 
+import uk.org.adacollege.data.*;
+import uk.org.adacollege.sort.*;
+import uk.org.adacollege.search.*;
+import uk.org.adacollege.util.Benchmark;
+
 import java.util.Random;
 
 class Exercises {
@@ -21,13 +26,13 @@ class Exercises {
     System.out.printf("For an array of %d elements.\n", xs.length);
 
     Thread bubbleT = new Thread(() -> System.out.printf(
-      "Bubble sort took %s.\n", Benchmark.run(() -> Sort.bubble(xs))
+      "Bubble sort took %s.\n", Benchmark.run(() -> Bubble.sort(xs))
     ));
     Thread selectionT = new Thread(() -> System.out.printf(
-      "Selection sort took %s.\n", Benchmark.run(() -> Sort.selection(xs))
+      "Selection sort took %s.\n", Benchmark.run(() -> Selection.sort(xs))
     ));
     Thread insertionT = new Thread(() -> System.out.printf(
-      "Insertion sort took %s.\n", Benchmark.run(() -> Sort.insertion(xs))
+      "Insertion sort took %s.\n", Benchmark.run(() -> Insertion.sort(xs))
     ));
 
     bubbleT.start();
@@ -36,11 +41,11 @@ class Exercises {
   }
 
   static void search() {
-    int[] xs = Sort.insertion(numbers());
+    int[] xs = Insertion.sort(numbers());
     int target = xs[new Random().nextInt(LIST_SIZE)];
     System.out.printf("Binary search took %s.\n", Benchmark.run(
       () -> System.out.printf(
-        "Found %d: %b.\n", target, Search.binary(xs, target)
+        "Found %d: %b.\n", target, Binary.search(xs, target)
       )
     ));
   }

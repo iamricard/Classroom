@@ -1,12 +1,12 @@
-package uk.org.adacollege;
+package uk.org.adacollege.data;
 
 import java.util.Optional;
 
-class Stack<T> {
+public class Stack<T> {
   private Node<T> head;
   private int size = 0;
 
-  void push(T x) {
+  public void push(T x) {
     if (size == 0) {
       head = new Node<>(x);
     } else {
@@ -16,13 +16,13 @@ class Stack<T> {
     size++;
   }
 
-  Optional<T> peek() {
+  public Optional<T> peek() {
     if (size == 0) return Optional.empty();
 
     return Optional.of(head.data());
   }
 
-  Optional<T> pop() {
+  public Optional<T> pop() {
     if (size == 0) return Optional.empty();
 
     Node<T> node = head;
@@ -31,7 +31,7 @@ class Stack<T> {
     return Optional.of(node.data());
   }
 
-  int size() {
+  public int size() {
     return size;
   }
 }
