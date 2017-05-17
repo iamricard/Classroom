@@ -1,4 +1,4 @@
-package uk.org.adacollege.util;
+package me.rsole.util;
 
 import java.util.concurrent.TimeUnit;
 

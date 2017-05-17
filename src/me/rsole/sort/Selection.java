@@ -1,4 +1,4 @@
-package uk.org.adacollege.sort;
+package me.rsole.sort;
 
 import org.jetbrains.annotations.Contract;
 

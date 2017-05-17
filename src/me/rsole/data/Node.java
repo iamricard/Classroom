@@ -1,4 +1,4 @@
-package uk.org.adacollege.data;
+package me.rsole.data;
 
 class Node<T> {
   private T data;

@@ -1,4 +1,4 @@
-package uk.org.adacollege.search;
+package me.rsole.search;
 
 public class Binary {
   public static boolean search(int[] xs, int x) {

@@ -1,9 +1,14 @@
-package uk.org.adacollege;
+package me.rsole;
 
+import me.rsole.data.Stack;
+import me.rsole.search.Binary;
+import me.rsole.sort.Bubble;
+import me.rsole.sort.Insertion;
+import me.rsole.sort.Selection;
+import me.rsole.util.Benchmark;
 import uk.org.adacollege.data.*;
 import uk.org.adacollege.sort.*;
 import uk.org.adacollege.search.*;
-import uk.org.adacollege.util.Benchmark;
 
 import java.util.Random;
 

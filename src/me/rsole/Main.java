@@ -1,4 +1,4 @@
-package uk.org.adacollege;
+package me.rsole;
 
 public class Main {
   public static void main(String[] args) {
