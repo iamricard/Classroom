@@ -10,9 +10,7 @@ public class SelectionSort {
 
     for (int i = 0; i < ys.length; i++) {
       for (int j = i; j < ys.length; j++) {
-        if (ys[j] < ys[minIdx]) {
-          minIdx = j;
-        }
+        if (ys[j] < ys[minIdx]) minIdx = j;
       }
 
       int swap = ys[i];

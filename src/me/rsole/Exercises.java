@@ -11,7 +11,7 @@ import me.rsole.util.Benchmark;
 import java.util.Random;
 
 class Exercises {
-  private final static int LIST_SIZE = 100000;
+  private final static int LIST_SIZE = 800000;
 
   static void palindrome() {
     String[] palindromes = {"madam", "potato", "london", "google", "poop"};
@@ -26,7 +26,6 @@ class Exercises {
   static void sort() {
     int[] xs = numbers();
     Benchmark b = new Benchmark();
-    System.out.printf("For an array of %d elements.\n", xs.length);
     b.add("BubbleSort Sort", () -> BubbleSort.exec(xs));
     b.add("SelectionSort Sort", () -> SelectionSort.exec(xs));
     b.add("InsertionSort Sort", () -> InsertionSort.exec(xs));
