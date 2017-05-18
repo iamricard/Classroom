@@ -5,6 +5,7 @@ import me.rsole.search.BinarySearch;
 import me.rsole.search.LinearSearch;
 import me.rsole.sort.BubbleSort;
 import me.rsole.sort.InsertionSort;
+import me.rsole.sort.MergeSort;
 import me.rsole.sort.SelectionSort;
 import me.rsole.util.Benchmark;
 
@@ -26,9 +27,10 @@ class Exercises {
   static void sort() {
     int[] xs = numbers();
     Benchmark b = new Benchmark();
-    b.add("BubbleSort Sort", () -> BubbleSort.exec(xs));
-    b.add("SelectionSort Sort", () -> SelectionSort.exec(xs));
-    b.add("InsertionSort Sort", () -> InsertionSort.exec(xs));
+    b.add("BubbleSort", () -> BubbleSort.exec(xs));
+    b.add("SelectionSort", () -> SelectionSort.exec(xs));
+    b.add("InsertionSort", () -> InsertionSort.exec(xs));
+    b.add("MergeSort", () -> MergeSort.exec(xs));
     b.run();
   }
 
